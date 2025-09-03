@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
+
+/* ESTILOS GLOBAIS */
+body {
+    font-family: 'Kanit', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    background-image: url('assets/fundo3.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* CABEÇALHO PADRÃO (DESKTOP) */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #E5F5FF;
+    height: auto;
+    min-height: 110px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-height: 80px;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: auto;
+    max-height: 80px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+}
+
+/* MENU PADRÃO (DESKTOP) */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0;
+    gap: 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #233A5E; /* Mantém a cor original do texto */
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil por padrão */
+}
+
+/* Efeito de destaque da sombra ao passar o mouse */
+.menu a:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+}
+
+/* Estilo para a página atual (sem hover) */
+.menu a.active {
+    background-color: #233A5E; /* Fundo sólido para destacar a página ativa */
+    color: #fff; /* Texto branco */
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* MENU HAMBÚRGUER (ESCONDIDO POR PADRÃO) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    position: relative;
+    z-index: 11;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #233A5E;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* CARROSSEL */
+.carrossel {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    aspect-ratio: 1000/475;
+    margin: 15px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    top: 0;
+    left: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.anterior, .proximo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.anterior { left: 10px; }
+.proximo { right: 10px; }
+
+/* HISTÓRIA */
+.historia {
+    padding: 40px 20px;
+    text-align: left;
+    background-color: white;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.historia h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.historia-texto p {
+    text-align: justify; /* Justifica o texto */
+    font-size: 1.1em; /* Deixa o texto 10% maior que o padrão. Você pode ajustar esse valor */
+    line-height: 1.8; /* Aumenta o espaçamento entre as linhas para melhorar a leitura */
+    line-height: 1.6;
+    margin-bottom: -20px;
+}
+/* CONTAINER PRINCIPAL PARA TEXTO E IMAGEM */
+/* Também vamos garantir que o historia-container tenha espaço suficiente para a imagem */
+.historia-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    position: relative;
+    padding-bottom: 100px; /* Adiciona um espaço na parte inferior do container para a imagem "sair" um pouco */
+}
+
+.historia-texto {
+    max-width: 600px; /* Define a largura máxima do texto, ajustando conforme a necessidade */
+    margin: 0 auto; /* Centraliza a div do texto */
+    text-align: left; /* Mantém o alinhamento do texto à esquerda */
+}
+
+/* Remove as regras que não são mais necessárias para a seção .historia */
+.historia {
+    padding: initial;
+    text-align: initial;
+    background-color: initial;
+    max-width: initial;
+    margin: initial;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 900px) {
+    .historia-container {
+        flex-direction: column;
+        max-width: 100%; /* Permite que o container ocupe toda a largura em telas menores */
+        text-align: center;
+    }
+
+    .historia-texto {
+        flex: 1; /* Permite que o texto ocupe o espaço disponível em telas menores */
+        width: 90%; /* Define a largura do texto para telas menores */
+        padding-right: 0;
+        padding-bottom: 20px;
+        text-align: center; /* Centraliza o texto em telas menores, se desejar */
+    }
+
+    }
+
+/* RODAPÉ */
+.rodape {
+    text-align: center;
+    padding: 20px;
+    background-color: #E5F5FF;
+    color: white;
+}
+
+.logos-rodape {
+    display: flex;
+    justify-content: center;
+    gap: 250px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.logos-rodape img {
+   height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* BOTÃO WHATSAPP */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- */
+/* Regras de Responsividade */
+
+@media (max-width: 1200px) {
+    .logos-rodape {
+        gap: 200px;
+    }
+    
+    .carrossel {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cabecalho {
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+    
+    .logo {
+        margin-bottom: 0;
+    }
+    
+    /* Esconde o menu completo */
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #E5F5FF;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 10;
+        transition: top 0.3s ease-in-out;
+    }
+    
+    .menu.active {
+        display: flex;
+    }
+    
+    .menu a {
+        font-size: 14px;
+        margin: 5px 10px;
+    }
+    
+    /* Exibe o botão do hambúrguer */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .logos-rodape {
+        gap: 150px;
+    }
+    
+    .carrossel {
+        aspect-ratio: 1000/475;
+    }
+}
+
+@media (max-width: 900px) {
+    .logos-rodape {
+        gap: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cabecalho {
+        flex-direction: row;
+        padding: 15px 10px;
+    }
+    
+    .logo img {
+        max-height: 70px;
+    }
+    
+    .menu a {
+        font-size: 13px;
+        margin: 5px 8px;
+    }
+    
+    .carrossel {
+        aspect-ratio: 16/9;
+        width: 98%;
+        margin: 15px auto;
+    }
+    
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .logos-rodape {
+        gap: 80px;
+    }
+}
+
+@media (max-width: 650px) {
+    .logos-rodape {
+        gap: 60px;
+    }
+    
+    .carrossel {
+        aspect-ratio: 16/9;
+    }
+}
+
+@media (max-width: 600px) {
+    .logos-rodape {
+        gap: 50px;
+        flex-wrap: nowrap;
+    }
+    
+    .carrossel {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu a {
+        font-size: 12px;
+        margin: 5px 5px;
+        padding: 5px 0;
+    }
+    
+    .historia {
+        padding: 20px 15px;
+    }
+    
+    .historia h2 {
+        font-size: 24px;
+    }
+    
+    .historia p {
+        font-size: 15px;
+    }
+    
+    .logos-rodape {
+        gap: 40px;
+        flex-wrap: wrap;
+        row-gap: 30px;
+    }
+    
+    .logos-rodape img {
+        height: 25px;
+    }
+    
+    .carrossel {
+        aspect-ratio: 1/1;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .logos-rodape {
+        gap: 30px;
+    }
+    
+    .carrossel {
+        aspect-ratio: 4/5;
+    }
+}
+
+/* GARANTIA CONTRA CORTES NO CARROSSEL */
+.carrossel-container {
+    width: 100%;
+    overflow: visible;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}

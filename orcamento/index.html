@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicite Orçamento - Mineiro Representações</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <a href="/index.html" class="logo" id="logoHome">
+            <img src="../assets/logo.png" alt="Mineiro Representações">
+        </a>
+        <button class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="menu">
+            <a href="../produtos/index.html">CATÁLOGO DE PRODUTOS</a>
+            <a href="../orcamento/index.html">SOLICITE ORÇAMENTO</a>
+        </nav>
+    </header>
+
+    <main class="orcamento-container">
+        <section class="redes-sociais">
+            <h2>Fale conosco diretamente</h2>
+            <div class="social-buttons">
+                <a href="https://wa.me/5567991520216" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://instagram.com/mineirorepresentacao" class="instagram-btn" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+        </section>
+
+        <div class="form-feedback">
+            <h2 class="form-title">Solicite seu orçamento</h2>
+            <div id="form-message" class="form-message" style="display: none;"></div>
+            
+            <section class="formulario-orcamento">
+                <form id="formOrcamento" action="https://formsubmit.co/jorente.benicio@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="http://127.0.0.1:5500/orcamento/index.html?success=true">
+
+                    <div class="form-group">
+                        <label for="nome">Nome completo:</label>
+                        <input type="text" id="nome" name="nome" placeholder=" ">
+                        <span class="error-message">Digite nome e sobrenome (mínimo 5 caracteres)</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email">
+                        <span class="error-message">Digite um e-mail válido</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone">
+                        <span class="error-message">Digite DDD + número (10 dígitos)</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="produto">Produto de interesse:</label>
+                        <input type="text" id="produto" name="produto">
+                        <span class="error-message">Este campo é opcional, mas se preenchido, deve ter no mínimo 3 caracteres.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+                        <span class="error-message">A mensagem deve ter pelo menos 10 caracteres.</span>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Enviar Orçamento</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <div class="logos-rodape">
+            <img src="/assets/fortlevlogo.png" alt="Quartzolit">
+            <img src="/assets/quartzolit.png" alt="Fortlev">
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <a href="https://wa.me/5567991520216" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>

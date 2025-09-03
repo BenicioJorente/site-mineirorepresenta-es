@@ -1,0 +1,835 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
+
+/* ESTILOS GLOBAIS */
+body {
+    font-family: 'Kanit', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    background-image: url('../assets/fundo_produtos.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* CABEÇALHO - OTIMIZADO */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #E5F5FF;
+    height: 110px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* MENU PADRÃO (DESKTOP) */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0;
+    gap: 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #233A5E;
+    /* Mantém a cor original do texto */
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil por padrão */
+}
+
+/* Efeito de destaque da sombra ao passar o mouse */
+.menu a:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra mais forte no hover */
+    transform: translateY(-2px);
+    /* Efeito de "levantar" */
+}
+
+/* Estilo para a página atual (sem hover) */
+.menu a.active {
+    background-color: #233A5E;
+    /* Fundo sólido para destacar a página ativa */
+    color: #fff;
+    /* Texto branco */
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* MENU HAMBURGUER PARA MOBILE */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #233A5E;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    color: #233A5E;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.brand {
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.brand-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: #f0f8ff;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #233A5E;
+    border-left: 4px solid #233A5E;
+}
+
+.brand.active .brand-header {
+    background-color: #233A5E;
+    color: white;
+}
+
+.brand-header:hover {
+    background-color: #e0f0ff;
+}
+
+.brand.active .brand-header:hover {
+    background-color: #1a2c4a;
+}
+
+/* Área de Produtos */
+.products-area {
+    flex: 1;
+    padding: 20px;
+}
+
+.products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.products-header h2 {
+    color: #233A5E;
+    margin: 0;
+}
+
+.reset-btn {
+    background-color: #233A5E;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: opacity 0.2s;
+}
+
+.reset-btn:hover {
+    opacity: 0.9;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.img-container {
+    width: 190px;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+}
+
+.product-image {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 6px;
+    margin: 0;
+}
+
+.product-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 0.95rem;
+    color: #233A5E;
+    font-weight: 600;
+}
+
+.category,
+.brand {
+    font-size: 0.8rem;
+    margin: 3px 0;
+    color: #666;
+}
+
+.brand {
+    color: #233A5E;
+    font-weight: 500;
+}
+
+/* Mensagens de estado */
+.no-products,
+.error-message,
+.loading-message,
+.no-results-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.no-results-message {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+}
+
+.no-results-message a {
+    color: #233A5E;
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #e74c3c;
+    background-color: #ffebee;
+    border-radius: 8px;
+}
+
+.error-message button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Tratamento de erros de imagem */
+.img-container.error {
+    background-color: #fff8e1;
+}
+
+/* RODAPÉ */
+.rodape {
+    text-align: center;
+    padding: 20px;
+    background-color: #E5F5FF;
+    color: white;
+}
+
+.logos-rodape {
+    display: flex;
+    justify-content: center;
+    gap: 250px;
+    margin-bottom: 20px;
+}
+
+.logos-rodape img {
+    height: 40px;
+    width: auto;
+    align-items: center;
+}
+
+/* Botão flutuante do WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Para dispositivos móveis */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}
+
+/* ESTILOS PARA VISUALIZADOR DE PDF */
+.pdf-viewer-container {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.pdf-viewer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pdf-viewer-header h3 {
+    color: #233A5E;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.pdf-viewer {
+    width: 100%;
+    aspect-ratio: 1.414 / 1;
+    /* Proporção de uma folha A4 (ajuste se necessário) */
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.pdf-viewer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.pdf-section-title {
+    color: #233A5E;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.pdf-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    
+}
+
+.pdf-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.pdf-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-card.selected {
+    border: 2px solid #233A5E;
+    box-shadow: 0 5px 15px rgba(35, 58, 94, 0.2);
+}
+
+.pdf-card-thumb {
+    overflow: hidden;
+    /* Garante que a imagem não transborde */
+    display: flex;
+    /* Para centralizar a imagem dentro do thumb */
+    align-items: center;
+    /* Centraliza verticalmente */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    background-color: #f0f0f0;
+    /* Um fundo claro para o caso da imagem não preencher todo o espaço ou ter transparência */
+}
+
+.pdf-card-thumb img {
+    width: 100%; /* A imagem ocupa toda a largura do thumb */
+    height: 100%; /* A imagem ocupa toda a altura do thumb */
+    object-fit: cover; /* Recorta a imagem para preencher o espaço, mantendo a proporção */
+    display: block; /* Remove o espaço extra que imagens podem ter */
+}
+
+.pdf-card-content {
+    padding: 1rem;
+}
+
+.pdf-card-content h4 {
+    color: #233A5E;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.pdf-card-content p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Modo tela cheia */
+.fullscreen-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.fullscreen-mode .pdf-viewer-header {
+    background-color: #233A5E;
+    color: white;
+    padding: 10px 20px;
+    margin: 0;
+    width: 100%;
+}
+
+.fullscreen-mode .pdf-viewer-header h3 {
+    color: white;
+}
+
+.fullscreen-mode .pdf-controls button {
+    background-color: white;
+    color: #233A5E;
+}
+
+.fullscreen-mode .pdf-controls button:hover {
+    background-color: #f0f0f0;
+}
+
+.fullscreen-mode .pdf-viewer {
+    height: calc(100vh - 60px);
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    aspect-ratio: 1.414 / 1;
+    /* Proporção de uma folha A4 (ajuste se necessário) */
+}
+
+.fullscreen-mode .page-info {
+    color: white;
+}
+
+/* ========== RESPONSIVIDADE DO CABEÇALHO - CORRIGIDA NOVAMENTE ========== */
+
+/* Tablets (até 1024px) */
+@media (max-width: 1024px) {
+    .cabecalho {
+        height: 100px;
+        padding: 0 15px;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    /* Esconde o menu completo */
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #E5F5FF;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu a {
+        margin: 10px 0;
+        font-size: 16px;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid rgba(35, 58, 94, 0.1);
+        width: 100%;
+    }
+
+    .menu a:last-child {
+        border-bottom: none;
+    }
+
+    /* Exibe o botão do hambúrguer */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Outros ajustes para telas menores que 1024px */
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    .pdf-list {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
+    }
+
+    .logos-rodape {
+        gap: 30px;
+    }
+
+    .logos-rodape img {
+        height: 30px;
+    }
+}
+
+/* Celulares (até 600px) */
+@media (max-width: 600px) {
+    .cabecalho {
+        height: 80px;
+        padding: 0 10px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .products-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .products-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .pdf-viewer-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .pdf-controls {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .products-area {
+        padding: 15px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+    }
+
+    .img-container {
+        height: 120px;
+    }
+
+    .product-info {
+        padding: 10px;
+    }
+
+    .product-info h3 {
+        font-size: 0.9rem;
+    }
+
+    .pdf-viewer-container {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .pdf-viewer-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .pdf-controls button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .pdf-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .pdf-section-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* Celulares Pequenos (até 480px) */
+@media (max-width: 480px) {
+    .cabecalho {
+        height: 70px;
+        padding: 0 8px;
+    }
+
+    .logo img {
+        height: 45px;
+    }
+
+    .menu a {
+        font-size: 14px;
+    }
+
+    .menu-toggle {
+        width: 25px;
+        height: 20px;
+    }
+
+    .menu-toggle span {
+        height: 2.5px;
+        margin: 2.5px 0;
+    }
+
+    /* Ajustes adicionais para responsividade */
+    body {
+        font-size: 14px;
+    }
+
+    .sidebar {
+        padding: 15px;
+    }
+
+    .sidebar h2 {
+        font-size: 1.1rem;
+    }
+
+    .brand-header {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .products-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .reset-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    .img-container {
+        height: 100px;
+    }
+
+    .pdf-controls {
+        gap: 8px;
+    }
+
+    .pdf-controls button {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    .page-info {
+        font-size: 12px;
+    }
+
+    .pdf-card-thumb {
+        height: 130px;
+        font-size: 2.5rem;
+    }
+
+    .pdf-card-content {
+        padding: 15px;
+    }
+
+    .pdf-card-content h4 {
+        font-size: 1rem;
+    }
+
+    .pdf-card-content p {
+        font-size: 0.9rem;
+    }
+
+    .logos-rodape {
+        gap: 20px;
+    }
+
+    .logos-rodape img {
+        height: 25px;
+    }
+
+    .rodape {
+        padding: 20px 15px;
+    }
+}
+
+/* Dispositivos Muito Pequenos (até 320px) */
+@media (max-width: 320px) {
+    .cabecalho {
+        height: 60px;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .menu a {
+        margin: 0 8px;
+        font-size: 12px;
+    }
+
+    /* Ajustes adicionais para responsividade */
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .pdf-list {
+        grid-template-columns: 1fr;
+    }
+
+    .pdf-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .pdf-controls button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .page-info {
+        text-align: center;
+        margin: 5px 0;
+    }
+}

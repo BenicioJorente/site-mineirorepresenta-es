@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Produtos - Mineiro Representações</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="cabecalho">
+    <a href="index.html" class="logo" id="logoHome">
+      <img src="../assets/logo.png" alt="Mineiro Representações">
+    </a>
+
+    <button class="menu-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <nav class="menu">
+      <a href="../produtos/index.html">CATÁLOGO DE PRODUTOS</a>
+      <a href="../orcamento/index.html">SOLICITE ORÇAMENTO</a>
+    </nav>
+</header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Marcas</h2>
+      
+      <div class="brand active" data-brand="all">
+        <div class="brand-header">
+          Todas as Marcas
+        </div>
+      </div>
+      
+      <div class="brand" data-brand="Fortlev">
+        <div class="brand-header">
+          Fortlev
+        </div>
+      </div>
+
+      <div class="brand" data-brand="Quartzolit">
+        <div class="brand-header">
+          Quartzolit
+        </div>
+      </div>
+    </aside>
+
+    <main class="products-area">
+      <div class="products-header">
+        <h2 id="catalog-title">Catálogos Disponíveis</h2>
+        <button id="reset-filter" class="reset-btn">Limpar Filtros</button>
+      </div>
+      
+      <!-- Visualizador de PDF -->
+      <div class="pdf-viewer-container">
+        <div class="pdf-viewer-header">
+          <h3 id="viewer-title">Selecione um catálogo</h3>
+        </div>
+        <div class="pdf-viewer">
+          <iframe id="pdf-viewer" src="about:blank"></iframe>
+        </div>
+      </div>
+      
+      <!-- Lista de PDFs disponíveis -->
+      <h3 class="pdf-section-title">Catálogos Disponíveis</h3>
+      <div class="pdf-list">
+        <!-- PDFs da Fortlev -->
+        <div class="pdf-card" data-pdf="catalogo-fortlev.pdf" data-title="Catálogo Fortlev" data-brand="Fortlev">
+          <div class="pdf-card-thumb">
+            <img src="../assets/catalogo-fortlev.png" alt="Capa do Catálogo Fortlev">
+          </div>
+          <div class="pdf-card-content">
+            <h4>Catálogo Fortlev</h4>
+            <p>Catálogo completo de produtos Fortlev</p>
+          </div>
+        </div>
+        
+        <div class="pdf-card" data-pdf="cisterna-fortlev.pdf" data-title="Cisterna Fortlev" data-brand="Fortlev">
+          <div class="pdf-card-thumb">
+             <img src="../assets/cisterna.jpg" alt="Cisterna Fortlev">
+          </div>
+          <div class="pdf-card-content">
+            <h4>Cisterna Fortlev</h4>
+            <p>Catálogo de cisternas Fortlev</p>
+          </div>
+        </div>
+        
+        <div class="pdf-card" data-pdf="caixa-dagua-fortlev.pdf" data-title="Caixa D'água Fortlev" data-brand="Fortlev">
+          <div class="pdf-card-thumb">
+            <img src="../assets/caixa-dagua.jpg" alt="Caixa D'água Fortlev">
+          </div>
+          <div class="pdf-card-content">
+            <h4>Caixa D'água Fortlev</h4>
+            <p>Catálogo de caixas d'água Fortlev</p>
+          </div>
+        </div>
+
+          <!-- NOVOS CARDS ADICIONADOS AQUI -->
+  
+  <!-- REGISTROS FORTLEV -->
+  <div class="pdf-card" data-pdf="registros-fortlev.pdf" data-title="Registros Fortlev" data-brand="Fortlev">
+    <div class="pdf-card-thumb">
+      <img src="../assets/registro.png" alt="Registros Fortlev">
+    </div>
+    <div class="pdf-card-content">
+      <h4>Registros Fortlev</h4>
+      <p>Catálogo de registros Fortlev</p>
+    </div>
+  </div>
+  
+  <!-- TANQUES FORTLEV -->
+  <div class="pdf-card" data-pdf="tanques-fortlev.pdf" data-title="Tanques Fortlev" data-brand="Fortlev">
+    <div class="pdf-card-thumb">
+      <img src="../assets/tanque.png" alt="Tanques Fortlev">
+    </div>
+    <div class="pdf-card-content">
+      <h4>Tanques Fortlev</h4>
+      <p>Catálogo de tanques Fortlev</p>
+    </div>
+  </div>
+  
+  <!-- TUBOS E CONEXÕES FORTLEV -->
+  <div class="pdf-card" data-pdf="tubos-conexoes-fortlev.pdf" data-title="Tubos e Conexões Fortlev" data-brand="Fortlev">
+    <div class="pdf-card-thumb">
+      <img src="../assets/tubos-conexoes.png" alt="Tubos e Conexões Fortlev">
+    </div>
+    <div class="pdf-card-content">
+      <h4>Tubos e Conexões Fortlev</h4>
+      <p>Catálogo de tubos e conexões Fortlev</p>
+    </div>
+  </div>
+        
+        <!-- PDFs da Quartzolit -->
+        <div class="pdf-card" data-pdf="catalogo-quartzolit.pdf" data-title="Catálogo Quartzolit" data-brand="Quartzolit">
+          <div class="pdf-card-thumb">
+            <img src="../assets/catalogo-quartzolit.png" alt="Catálogo Quartzolit">
+          </div>
+          <div class="pdf-card-content">
+            <h4>Catálogo Quartzolit</h4>
+            <p>Catálogo completo de produtos Quartzolit</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <div class="logos-rodape">
+      <img src="../assets/fortlevlogo.png" alt="Fortlev">
+      <img src="../assets/quartzolit.png" alt="Quartzolit">
+    </div>
+  </footer>
+
+  <!-- Botão flutuante do WhatsApp -->
+  <a href="https://wa.me/5567991520216" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
