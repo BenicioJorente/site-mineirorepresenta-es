@@ -10,6 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    position: relative;
 }
 
 body::before {
@@ -17,12 +18,13 @@ body::before {
     background-image: url('../assets/fundo3.jpg'); 
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* Mantém a imagem fixa durante a rolagem */
     opacity: 0.3;
-    position: absolute;
+    position: fixed; /* Alterado de absolute para fixed */
     top: 0;
     left: 0;
     width: 100%;
-    height: 1100px;
+    height: 100vh; /* Usa a altura total da viewport */
     z-index: -1;
 }
 
@@ -42,7 +44,9 @@ body::before {
 }
 
 main {
-    flex: 1;
+    flex: 1 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .logo {
@@ -137,6 +141,7 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 2rem;
+    flex-shrink: 0;
 }
 
 .redes-sociais {
@@ -322,17 +327,29 @@ input:invalid, textarea:invalid {
 
 .logos-rodape {
     display: flex;
-    justify-content: center;
-    gap: 250px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
 }
 
 .logos-rodape img {
-    height: 40px;
+   height: 50px;
     width: auto;
     object-fit: contain;
 }
+
+.logos-rodape p {
+    margin: 0;
+    color: #2c3e50;
+    text-align: right;
+    flex: 1;
+    font-size: 14px;
+    padding-right: calc(60px + 10px); /* largura do botão + respiro */
+}
+
 
 /* Botão flutuante do WhatsApp */
 .whatsapp-float {
@@ -359,6 +376,16 @@ input:invalid, textarea:invalid {
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 
 /* ============ RESPONSIVIDADE DO CABEÇALHO - CORRIGIDA E COMPLETA ============ */
 @media (max-width: 1024px) {
@@ -447,6 +474,10 @@ input:invalid, textarea:invalid {
     .logos-rodape img {
         height: 40px;
     }
+
+    .whatsapp-float {
+        bottom: 90px; /* sobe pra não cobrir o rodapé */
+    }
 }
 
 /* Celulares Pequenos (até 480px) */
@@ -501,3 +532,4 @@ input:invalid, textarea:invalid {
         height: 40px;
     }
 }
+

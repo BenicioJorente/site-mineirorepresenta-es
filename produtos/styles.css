@@ -330,16 +330,29 @@ body::before {
 
 .logos-rodape {
     display: flex;
-    justify-content: center;
-    gap: 250px;
-    margin-bottom: 20px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
 }
 
 .logos-rodape img {
-    height: 40px;
+   height: 50px;
     width: auto;
-    align-items: center;
+    object-fit: contain;
 }
+
+.logos-rodape p {
+    margin: 0;
+    color: #2c3e50;
+    text-align: right;
+    flex: 1;
+    font-size: 14px;
+    padding-right: calc(60px + 10px); /* largura do botão + respiro */
+}
+
 
 /* Botão flutuante do WhatsApp */
 .whatsapp-float {
@@ -532,6 +545,16 @@ body::before {
     color: white;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
 /* ========== RESPONSIVIDADE DO CABEÇALHO - CORRIGIDA NOVAMENTE ========== */
 
 /* Tablets (até 1024px) */
@@ -687,6 +710,11 @@ body::before {
     .pdf-section-title {
         font-size: 1.2rem;
     }
+
+    .whatsapp-float {
+        bottom: 90px; /* sobe pra não cobrir o rodapé */
+    }
+    
 }
 
 /* Celulares Pequenos (até 480px) */
