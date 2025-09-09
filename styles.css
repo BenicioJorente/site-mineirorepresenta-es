@@ -403,35 +403,27 @@ body {
 
     .historia-container {
         flex-direction: row;
-        /* Alterado de column para row */
         min-height: auto;
-        align-items: flex-end;
-        /* Adicionado para alinhar com o rodapé */
+        align-items: flex-start; /* Alterado de flex-end para flex-start */
     }
 
     .historia-texto {
         flex: 0 0 60%;
-        /* Alterado de 100% para 60% */
         padding-right: 20px;
-        /* Adicionado espaçamento */
         margin-bottom: 0;
-        /* Alterado de 30px para 0 */
+        height: auto; /* Garante que a altura seja automática */
+        min-height: 280px; /* Altura mínima para manter consistência */
     }
 
     .mascote-image {
         flex: 0 0 40%;
-        /* Alterado de 100% para 40% */
         display: flex;
         justify-content: flex-end;
-        /* joga o mascote pra direita */
-        align-items: flex-end;
-        /* alinha embaixo */
-        margin-top: auto;
-        /* garante que desça pro rodapé */
+        align-items: flex-start; /* Alterado de flex-end para flex-start */
+        margin-top: 0; /* Remove margem automática */
         position: relative;
         right: auto;
         height: auto;
-        /* deixa altura automática */
     }
 
     .mascote-image img {
@@ -446,29 +438,30 @@ body {
 @media (max-width: 767px) {
     .historia-container {
         display: flex;
-        flex-direction: row; /* Mantém lado a lado */
-        align-items: flex-end; /* Alinha com o rodapé */
+        flex-direction: row;
+        align-items: flex-start; /* Alterado de flex-end para flex-start */
         justify-content: space-between;
-        min-height: 300px; /* Altura mínima para forçar alinhamento com rodapé */
+        min-height: 300px;
     }
     
     .historia-texto {
-        flex: 0 0 60%; /* Ocupa 60% da largura */
+        flex: 0 0 60%;
         padding-right: 15px;
         margin-bottom: 0;
+        min-height: 250px; /* Altura mínima consistente */
     }
     
     .mascote-image {
-        flex: 0 0 35%; /* Ocupa 35% da largura */
+        flex: 0 0 35%;
         display: flex;
         justify-content: flex-end;
-        align-items: flex-end;
+        align-items: flex-start; /* Alterado de flex-end para flex-start */
         height: 100%;
     }
     
     .mascote-image img {
         max-width: 100%;
-        max-height: 200px; /* Ajuste para telas menores */
+        max-height: 200px;
         width: auto;
         height: auto;
         object-fit: contain;
@@ -507,8 +500,6 @@ body {
     .logos-rodape {
         gap: 80px;
     }
-
-
 }
 
 @media (max-width: 650px) {
@@ -533,7 +524,23 @@ body {
 
     .whatsapp-float {
         bottom: 90px;
-        /* sobe pra não cobrir o rodapé */
+    }
+    
+    .historia-container {
+        flex-direction: column; /* Muda para coluna em telas muito pequenas */
+        align-items: center;
+    }
+    
+    .historia-texto {
+        flex: 0 0 100%;
+        padding-right: 0;
+        min-height: auto; /* Remove altura mínima em coluna */
+        margin-bottom: 20px;
+    }
+    
+    .mascote-image {
+        flex: 0 0 100%;
+        justify-content: center;
     }
 }
 
@@ -554,6 +561,7 @@ body {
 
     .historia p {
         font-size: 15px;
+        line-height: 1.5; /* Melhora a legibilidade */
     }
 
     .logos-rodape {
@@ -582,22 +590,24 @@ body {
     }
 
     .historia-container {
-        min-height: 250px;
-        flex-wrap: nowrap; /* Impede quebra de linha */
+        min-height: auto; /* Remove altura mínima fixa */
+        flex-wrap: nowrap;
     }
     
     .historia-texto {
-        flex: 0 0 55%; /* Reduz um pouco a largura do texto */
-        font-size: 14px; /* Texto um pouco menor para caber */
-        padding-right: 10px;
+        flex: 0 0 100%;
+        font-size: 14px;
+        padding-right: 0;
+        min-height: auto; /* Remove altura mínima */
     }
     
     .mascote-image {
-        flex: 0 0 40%; /* Aumenta um pouco a largura da imagem */
+        flex: 0 0 100%;
+        justify-content: center;
     }
     
     .mascote-image img {
-        max-height: 180px; /* Imagem um pouco menor */
+        max-height: 180px;
     }
 }
 
@@ -611,24 +621,22 @@ body {
     }
 
     .mascote-image img {
-        max-height: 180px;
-        /* Adicionado ajuste para telas muito pequenas */
+        max-height: 160px;
+    }
+    
+    .historia-texto {
+        font-size: 13px; /* Texto um pouco menor para caber melhor */
     }
 }
 
 /* Ajuste para telas extremamente pequenas */
 @media (max-width: 360px) {
     .historia-texto {
-        flex: 0 0 50%; /* Texto ocupa metade da tela */
-        font-size: 13px; /* Texto ainda menor */
-    }
-    
-    .mascote-image {
-        flex: 0 0 45%; /* Imagem ocupa quase metade */
+        font-size: 13px;
     }
     
     .mascote-image img {
-        max-height: 160px; /* Imagem ainda menor */
+        max-height: 140px;
     }
 }
 
