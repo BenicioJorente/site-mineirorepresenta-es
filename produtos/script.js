@@ -161,10 +161,10 @@ function updateBrandFilter(brand) {
 
 // 8. OBTER CAMINHO DO PDF
 function getPdfPath(pdfFileName) {
-    // Caminho fixo para o viewer
-    const pdfJsViewerPath = '/assets/pdfjs/web/viewer.html';
+    // Caminho correto para o viewer (sempre a partir da raiz do repositório)
+    const pdfJsViewerPath = "/assets/pdfjs/web/viewer.html";
 
-    // Caminho fixo para os PDFs
+    // Caminho correto para os PDFs
     const pdfUrl = encodeURIComponent(`/assets/pdfs/${pdfFileName}`);
 
     return `${pdfJsViewerPath}?file=${pdfUrl}`;
