@@ -8,6 +8,8 @@ body {
     color: #333;
     min-height: 100vh;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 body::before {
@@ -16,12 +18,17 @@ body::before {
     background-size: cover;
     background-position: center;
     opacity: 0.3;
-    position: absolute;
+    position: fixed; /* <-- aqui */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
+}
+
+
+main {
+    flex: 1;
 }
 
 /* CABEÇALHO PADRÃO (DESKTOP) */
@@ -69,8 +76,7 @@ body::before {
 
 .menu a {
     text-decoration: none;
-    color: #233A5E;
-    /* Mantém a cor original do texto */
+    color: #233A5E; /* Mantém a cor original do texto */
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -81,24 +87,19 @@ body::before {
     padding: 8px 15px;
     border-radius: 20px;
     transition: all 0.3s ease;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    /* Sombra sutil por padrão */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil por padrão */
 }
 
 /* Efeito de destaque da sombra ao passar o mouse */
 .menu a:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* Sombra mais forte no hover */
-    transform: translateY(-2px);
-    /* Efeito de "levantar" */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+    transform: translateY(-2px); /* Efeito de "levantar" */
 }
 
 /* Estilo para a página atual (sem hover) */
 .menu a.active {
-    background-color: #233A5E;
-    /* Fundo sólido para destacar a página ativa */
-    color: #fff;
-    /* Texto branco */
+    background-color: #233A5E; /* Fundo sólido para destacar a página ativa */
+    color: #fff; /* Texto branco */
     font-weight: 600;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
@@ -155,12 +156,11 @@ body::before {
     object-position: center;
 }
 
-.anterior,
-.proximo {
+.anterior, .proximo {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
     color: white;
     border: none;
     padding: 10px;
@@ -168,13 +168,8 @@ body::before {
     z-index: 2;
 }
 
-.anterior {
-    left: 10px;
-}
-
-.proximo {
-    right: 10px;
-}
+.anterior { left: 10px; }
+.proximo { right: 10px; }
 
 /* HISTÓRIA */
 .historia {
@@ -192,12 +187,9 @@ body::before {
 }
 
 .historia-texto p {
-    text-align: justify;
-    /* Justifica o texto */
-    font-size: 1.1em;
-    /* Deixa o texto 10% maior que o padrão. Você pode ajustar esse valor */
-    line-height: 1.8;
-    /* Aumenta o espaçamento entre as linhas para melhorar a leitura */
+    text-align: justify; /* Justifica o texto */
+    font-size: 1.1em; /* Deixa o texto 10% maior que o padrão. Você pode ajustar esse valor */
+    line-height: 1.8; /* Aumenta o espaçamento entre as linhas para melhorar a leitura */
     line-height: 1.6;
     margin-bottom: -20px;
 }
@@ -216,9 +208,8 @@ body::before {
 
 .historia-texto {
     flex: 0 0 55%;
-    padding-right: 60px;
+    padding-right: 40px;
     box-sizing: border-box;
-    
 }
 
 .historia-texto h2 {
@@ -241,7 +232,7 @@ body::before {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 25px;
-    text-align: justify;
+    text-align: left;
 }
 
 .mascote-image {
@@ -269,34 +260,30 @@ body::before {
     padding: 20px;
     background-color: #E5F5FF;
     color: white;
+    margin-top: auto; /* <-- força ficar no fim */
 }
+
 
 .logos-rodape {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 100px;
-    margin: 0 auto;
-    width: 90%;
-    max-width: 1200px;
+    justify-content: left;
+    gap: 200px;
+    margin-bottom: 20px;
+    margin-left: 140px;
+    flex-wrap: wrap;
 }
 
 .logos-rodape img {
-    height: 50px;
+   height: 50px;
     width: auto;
     object-fit: contain;
 }
 
 .logos-rodape p {
-    margin: 0;
+    justify-content: right;
     color: #2c3e50;
-    text-align: right;
-    flex: 1;
-    font-size: 14px;
-    padding-right: calc(60px + 10px);
-    /* largura do botão + respiro */
+    text-align: center;
 }
-
 /* BOTÃO WHATSAPP */
 .whatsapp-float {
     position: fixed;
@@ -323,18 +310,6 @@ body::before {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-
-/* --- */
 /* Regras de Responsividade */
 
 @media (max-width: 1200px) {
@@ -396,39 +371,64 @@ body {
     }
 }
 
+@media (max-width: 1000px) {
+  .rodape {
+    display: flex;
+    justify-content: space-between; /* logos à esquerda, texto à direita */
+    align-items: center;
+    padding: 15px 20px;
+    min-height: 70px; /* altura fixa */
+  }
+
+  .logos-rodape {
+    display: flex;
+    flex-wrap: nowrap; /* não deixa quebrar */
+    gap: 20px; /* diminui o espaço entre logos no mobile */
+    margin: 0;
+  }
+
+  .rodape p {
+    margin: 0;
+    font-size: 13px;
+    white-space: nowrap; /* impede quebra do "Campo Grande - MS" */
+  }
+}
+
+
 @media (max-width: 900px) {
     .logos-rodape {
         gap: 100px;
     }
 
+    /* Alteração para o layout da história */
     .historia-container {
-        flex-direction: row;
+        flex-direction: column;
+        align-items: center;
         min-height: auto;
-        align-items: flex-start; /* Alterado de flex-end para flex-start */
+        margin-bottom: 20px;
     }
 
     .historia-texto {
-        flex: 0 0 60%;
-        padding-right: 20px;
-        margin-bottom: 0;
-        height: auto; /* Garante que a altura seja automática */
-        min-height: 280px; /* Altura mínima para manter consistência */
+        flex: unset;
+        width: 90%;
+        padding-right: 0;
+        margin-bottom: 20px;
+        text-align: center;
     }
 
     .mascote-image {
-        flex: 0 0 40%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-start; /* Alterado de flex-end para flex-start */
-        margin-top: 0; /* Remove margem automática */
-        position: relative;
+        flex: unset;
+        display: block;
+        margin: 0 auto;
+        position: static;
         right: auto;
         height: auto;
+        text-align: center;
     }
 
     .mascote-image img {
-        max-width: 300px;
-        max-height: 280px;
+        max-width: 200px;
+        max-height: 200px;
         height: auto;
         width: auto;
     }
@@ -438,30 +438,31 @@ body {
 @media (max-width: 767px) {
     .historia-container {
         display: flex;
-        flex-direction: row;
-        align-items: flex-start; /* Alterado de flex-end para flex-start */
-        justify-content: space-between;
-        min-height: 300px;
+        flex-direction: column; /* Alterado para column */
+        align-items: center;
+        justify-content: center;
+        min-height: auto; /* Alterado para auto */
     }
-    
+
     .historia-texto {
-        flex: 0 0 60%;
-        padding-right: 15px;
-        margin-bottom: 0;
-        min-height: 250px; /* Altura mínima consistente */
+        flex: unset; /* Alterado para unset */
+        width: 90%; /* Adicionado */
+        padding-right: 0; /* Alterado para 0 */
+        margin-bottom: 20px; /* Adicionado */
+        text-align: center; /* Adicionado */
     }
-    
+
     .mascote-image {
-        flex: 0 0 35%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-start; /* Alterado de flex-end para flex-start */
-        height: 100%;
+        flex: unset; /* Alterado para unset */
+        display: block; /* Alterado para block */
+        justify-content: center;
+        align-items: center;
+        height: auto; /* Alterado para auto */
     }
-    
+
     .mascote-image img {
         max-width: 100%;
-        max-height: 200px;
+        max-height: 180px; /* Ajuste para telas menores */
         width: auto;
         height: auto;
         object-fit: contain;
@@ -469,6 +470,15 @@ body {
 }
 
 @media (max-width: 768px) {
+     body {
+        min-height: auto;
+    }
+
+    body::before {
+        height: 100%;
+        min-height: 100dvh; /* garante preenchimento total se o conteúdo for pouco */
+    }
+
     .cabecalho {
         flex-direction: row;
         padding: 15px 10px;
@@ -499,6 +509,11 @@ body {
 
     .logos-rodape {
         gap: 80px;
+        margin-top: auto;
+    }
+
+    .rodape {
+        margin-top: auto;
     }
 }
 
@@ -524,23 +539,7 @@ body {
 
     .whatsapp-float {
         bottom: 90px;
-    }
-    
-    .historia-container {
-        flex-direction: column; /* Muda para coluna em telas muito pequenas */
-        align-items: center;
-    }
-    
-    .historia-texto {
-        flex: 0 0 100%;
-        padding-right: 0;
-        min-height: auto; /* Remove altura mínima em coluna */
-        margin-bottom: 20px;
-    }
-    
-    .mascote-image {
-        flex: 0 0 100%;
-        justify-content: center;
+        /* sobe pra não cobrir o rodapé */
     }
 }
 
@@ -561,7 +560,6 @@ body {
 
     .historia p {
         font-size: 15px;
-        line-height: 1.5; /* Melhora a legibilidade */
     }
 
     .logos-rodape {
@@ -589,25 +587,30 @@ body {
         margin: 2.5px 0;
     }
 
+    /* Alteração no layout da história para esta media query */
     .historia-container {
-        min-height: auto; /* Remove altura mínima fixa */
+        flex-direction: column; /* Alterado para column */
+        align-items: center;
+        min-height: auto; /* Alterado para auto */
         flex-wrap: nowrap;
     }
-    
+
     .historia-texto {
-        flex: 0 0 100%;
+        flex: unset;
+        width: 90%;
         font-size: 14px;
-        padding-right: 0;
-        min-height: auto; /* Remove altura mínima */
+        padding-right: 0; /* Alterado para 0 */
+        margin-bottom: 20px;
     }
-    
+
     .mascote-image {
-        flex: 0 0 100%;
+        flex: unset;
         justify-content: center;
+        align-items: center;
     }
-    
+
     .mascote-image img {
-        max-height: 180px;
+        max-height: 160px; /* Imagem ainda menor */
     }
 }
 
@@ -621,22 +624,24 @@ body {
     }
 
     .mascote-image img {
-        max-height: 160px;
-    }
-    
-    .historia-texto {
-        font-size: 13px; /* Texto um pouco menor para caber melhor */
+        max-height: 180px;
     }
 }
 
 /* Ajuste para telas extremamente pequenas */
 @media (max-width: 360px) {
     .historia-texto {
+        flex: unset;
+        width: 90%;
         font-size: 13px;
     }
-    
+
+    .mascote-image {
+        flex: unset;
+    }
+
     .mascote-image img {
-        max-height: 140px;
+        max-height: 160px;
     }
 }
 
