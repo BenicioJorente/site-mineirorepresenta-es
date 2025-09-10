@@ -343,6 +343,33 @@ main {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+
+/* Botão Instagram */
+.instagram-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 110px; /* fica acima do WhatsApp */
+  right: 40px;
+  background: radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf, #4f5bd5);
+  color: #FFF;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.instagram-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
 /* GARANTIR QUE TODOS OS ELEMENTOS PRINCIPAIS TENHAM LARGURA TOTAL */
 body, html {
   width: 100%;
@@ -513,6 +540,14 @@ main {
         height: 50px;
         font-size: 25px;
     }
+
+      .instagram-float {
+        bottom: 140px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+    }
 }
 
 /* Celulares Pequenos (até 480px) */
@@ -579,6 +614,14 @@ main {
         height: 45px;
         font-size: 22px;
     }
+
+    .instagram-float {
+        bottom: 130px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+    }
 }
 
 /* Dispositivos Muito Pequenos (até 320px) */
@@ -609,6 +652,14 @@ main {
 
     .whatsapp-float {
         bottom: 70px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .instagram-float {
+        bottom: 120px;
         right: 10px;
         width: 40px;
         height: 40px;
