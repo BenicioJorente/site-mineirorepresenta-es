@@ -322,62 +322,70 @@ body::before {
 
 /* RODAPÉ */
 .rodape {
-    text-align: center;
-    padding: 20px;
-    background-color: #E5F5FF;
-    color: white;
+  text-align: center;
+  padding: 20px;
+  background-color: #E5F5FF;
+  color: white;
+  margin-top: auto;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
 
 .logos-rodape {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 100px;
-    margin: 0 auto;
-    width: 90%;
-    max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 200px;
+  margin-bottom: 20px;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .logos-rodape img {
-   height: 50px;
-    width: auto;
-    object-fit: contain;
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .logos-rodape p {
-    margin: 0;
-    color: #2c3e50;
-    text-align: right;
-    flex: 1;
-    font-size: 14px;
-    padding-right: calc(60px + 10px); /* largura do botão + respiro */
+  margin: 0;
+  color: #2c3e50;
+  font-size: 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 20px;
 }
 
-
-/* Botão flutuante do WhatsApp */
+/* BOTÃO WHATSAPP */
 .whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .whatsapp-float:hover {
-    background-color: #128c7e;
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: #128c7e;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Para dispositivos móveis */

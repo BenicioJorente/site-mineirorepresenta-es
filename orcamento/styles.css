@@ -15,16 +15,19 @@ body {
 
 body::before {
     content: "";
-    background-image: url('../assets/fundo3.jpg'); 
+    background-image: url('../assets/fundo3.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Mantém a imagem fixa durante a rolagem */
+    background-attachment: fixed;
+    /* Mantém a imagem fixa durante a rolagem */
     opacity: 0.3;
-    position: fixed; /* Alterado de absolute para fixed */
+    position: fixed;
+    /* Alterado de absolute para fixed */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Usa a altura total da viewport */
+    height: 100vh;
+    /* Usa a altura total da viewport */
     z-index: -1;
 }
 
@@ -59,7 +62,7 @@ main {
 }
 
 .logo img {
-    height: auto; 
+    height: auto;
     max-height: 80px;
     width: auto;
     max-width: 100%;
@@ -80,7 +83,8 @@ main {
 
 .menu a {
     text-decoration: none;
-    color: #233A5E; /* Mantém a cor original do texto */
+    color: #233A5E;
+    /* Mantém a cor original do texto */
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -91,19 +95,24 @@ main {
     padding: 8px 15px;
     border-radius: 20px;
     transition: all 0.3s ease;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil por padrão */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil por padrão */
 }
 
 /* Efeito de destaque da sombra ao passar o mouse */
 .menu a:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
-    transform: translateY(-2px); /* Efeito de "levantar" */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra mais forte no hover */
+    transform: translateY(-2px);
+    /* Efeito de "levantar" */
 }
 
 /* Estilo para a página atual (sem hover) */
 .menu a.active {
-    background-color: #233A5E; /* Fundo sólido para destacar a página ativa */
-    color: #fff; /* Texto branco */
+    background-color: #233A5E;
+    /* Fundo sólido para destacar a página ativa */
+    color: #fff;
+    /* Texto branco */
     font-weight: 600;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
@@ -165,7 +174,8 @@ main {
     margin-top: 1.5rem;
 }
 
-.whatsapp-btn, .instagram-btn {
+.whatsapp-btn,
+.instagram-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,16 +197,17 @@ main {
     background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
 }
 
-.whatsapp-btn:hover, .instagram-btn:hover {
+.whatsapp-btn:hover,
+.instagram-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .form-feedback {
     background: white;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .form-title {
@@ -246,7 +257,8 @@ main {
     box-shadow: 0 0 0 2px rgba(35, 58, 94, 0.15);
 }
 
-input:invalid, textarea:invalid {
+input:invalid,
+textarea:invalid {
     border-color: initial !important;
     box-shadow: none !important;
 }
@@ -287,7 +299,7 @@ input:invalid, textarea:invalid {
     display: none;
 }
 
-.invalid + .error-message {
+.invalid+.error-message {
     display: block;
 }
 
@@ -313,8 +325,15 @@ input:invalid, textarea:invalid {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* RODAPÉ */
@@ -323,35 +342,43 @@ input:invalid, textarea:invalid {
     padding: 20px;
     background-color: #E5F5FF;
     color: white;
+    margin-top: auto;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 }
 
 .logos-rodape {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 100px;
-    margin: 0 auto;
-    width: 90%;
+    align-items: center;
+    gap: 200px;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+    width: 100%;
     max-width: 1200px;
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
 .logos-rodape img {
-   height: 50px;
+    height: 50px;
     width: auto;
     object-fit: contain;
+    flex-shrink: 0;
 }
 
 .logos-rodape p {
     margin: 0;
     color: #2c3e50;
-    text-align: right;
-    flex: 1;
     font-size: 14px;
-    padding-right: calc(60px + 10px); /* largura do botão + respiro */
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-right: 20px;
 }
 
-
-/* Botão flutuante do WhatsApp */
+/* BOTÃO WHATSAPP */
 .whatsapp-float {
     position: fixed;
     width: 60px;
@@ -378,13 +405,16 @@ input:invalid, textarea:invalid {
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
+
+
 
 
 /* ============ RESPONSIVIDADE DO CABEÇALHO - CORRIGIDA E COMPLETA ============ */
@@ -393,13 +423,13 @@ html, body {
         height: 100px;
         padding: 0 15px;
     }
-    
+
     .logo img {
         height: 70px;
     }
-    
+
     .menu {
-        display: none; 
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -408,14 +438,14 @@ html, body {
         flex-direction: column;
         align-items: center;
         padding: 20px 0;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         z-index: 1000;
     }
-    
+
     .menu.active {
         display: flex;
     }
-    
+
     .menu a {
         margin: 10px 0;
         font-size: 16px;
@@ -424,26 +454,26 @@ html, body {
         border-bottom: 1px solid rgba(35, 58, 94, 0.1);
         width: 100%;
     }
-    
+
     .menu a:last-child {
         border-bottom: none;
     }
-    
+
     .menu-toggle {
-        display: flex; 
+        display: flex;
     }
 
     .orcamento-container {
         grid-template-columns: 1fr;
         padding: 1rem;
     }
-    
+
     .logos-rodape {
         gap: 30px;
     }
-    
+
     .logos-rodape img {
-        height: 30px;
+        height: 50px;
     }
 }
 
@@ -453,30 +483,33 @@ html, body {
         height: 80px;
         padding: 0 10px;
     }
-    
+
     .logo img {
         height: 50px;
     }
-    
+
     .social-buttons {
         flex-direction: column;
     }
-    
+
     .form-feedback {
         padding: 1.5rem;
     }
-    
+
     .logos-rodape {
-        gap: 1rem;
-        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        padding: 0 15px;
     }
-    
+
     .logos-rodape img {
-        height: 40px;
+        height: 35px;
     }
 
     .whatsapp-float {
-        bottom: 90px; /* sobe pra não cobrir o rodapé */
+        bottom: 90px;
+        /* sobe pra não cobrir o rodapé */
     }
 }
 
@@ -486,39 +519,42 @@ html, body {
         height: 70px;
         padding: 0 8px;
     }
-    
+
     .logo img {
         height: 45px;
     }
-    
+
     .menu a {
         font-size: 14px;
     }
-    
+
     .menu-toggle {
         width: 25px;
         height: 20px;
     }
-    
+
     .menu-toggle span {
         height: 2.5px;
         margin: 2.5px 0;
     }
-    
+
     .orcamento-container {
         padding: 0.5rem;
     }
-    
-    .redes-sociais, .form-feedback {
+
+    .redes-sociais,
+    .form-feedback {
         padding: 1.5rem;
     }
-    
+
     .logos-rodape {
-        gap: 20px;
+        gap: 15px;
+        justify-content: space-between;
+        padding: 0 10px;
     }
-    
+
     .logos-rodape img {
-        height: 25px;
+        height: 30px;
     }
 }
 
@@ -527,9 +563,19 @@ html, body {
     .cabecalho {
         height: 60px;
     }
-    
+
     .logo img {
         height: 40px;
     }
-}
 
+    .logos-rodape {
+        gap: 10px;
+        justify-content: space-between;
+        padding: 0 8px;
+    }
+
+    .logos-rodape img {
+        height: 25px;
+    }
+
+}
