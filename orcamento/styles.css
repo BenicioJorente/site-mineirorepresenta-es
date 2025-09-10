@@ -507,6 +507,13 @@ body {
         height: 35px;
     }
 
+    .logos-rodape p {
+        font-size: 12px;
+        padding-right: 0;
+        white-space: normal; /* permite quebra de linha */
+        text-align: right;   /* mantém alinhado sem cortar */
+    }
+
     .whatsapp-float {
         bottom: 90px;
         /* sobe pra não cobrir o rodapé */
@@ -568,6 +575,7 @@ body {
         height: 40px;
     }
 
+    /* Rodapé corrigido */
     .logos-rodape {
         gap: 10px;
         justify-content: space-between;
@@ -578,4 +586,16 @@ body {
         height: 25px;
     }
 
+    .logos-rodape p {
+        font-size: 10px;
+        padding-right: 0;
+    }
+
+    .whatsapp-float {
+        bottom: 70px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
 }
