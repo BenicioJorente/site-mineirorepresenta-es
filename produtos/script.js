@@ -159,19 +159,22 @@ function updateBrandFilter(brand) {
     filterPdfsByBrand(brand);
 }
 
-// 8. OBTER CAMINHO DO PDF (compatível local + GitHub Pages)
+// Função para pegar o caminho do PDF
 function getPdfPath(pdfFileName) {
-    const pdfJsViewerPath = "../assets/pdfjs/web/viewer.html";
+    // caminho ABSOLUTO para o viewer
+    const pdfJsViewerPath = "/assets/pdfjs/web/viewer.html";
 
-    // pega nome do repositório automaticamente (primeira pasta depois do domínio)
-    const repoName = window.location.pathname.split('/')[1];
+    // Detecta se está rodando no GitHub Pages (tem repoName)
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const repoName = pathParts.length > 0 && window.location.hostname.includes("github.io") 
+        ? `/${pathParts[0]}`
+        : "";
 
-    // monta caminho do PDF incluindo o repositório
-    const pdfUrl = encodeURIComponent(`/${repoName}/assets/pdfs/${pdfFileName}`);
+    // Monta URL final do PDF
+    const pdfUrl = encodeURIComponent(`${repoName}/assets/pdfs/${pdfFileName}`);
 
     return `${pdfJsViewerPath}?file=${pdfUrl}`;
 }
-
 
 
 
