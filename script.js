@@ -43,23 +43,31 @@ document.addEventListener('DOMContentLoaded', function () {
         resetFilterBtn.addEventListener('click', () => console.log('Filtro resetado'));
     }
 
-    // Evento para o logo - redireciona para index.html
-    // Evento para o logo - redireciona corretamente
-    const logo = document.querySelector('.logo');
-    if (logo) {
-        logo.addEventListener('click', function (e) {
-            e.preventDefault();
+   // Evento para o logo - redireciona corretamente
+const logo = document.querySelector('.logo');
+if (logo) {
+    logo.addEventListener('click', function (e) {
+        e.preventDefault();
 
-            // Detecta se está rodando em localhost
-            const isLocalhost = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+        const hostname = window.location.hostname;
+        const pathname = window.location.pathname;
 
-            // Se for GitHub Pages, pega o nome do repositório
-            const repoName = !isLocalhost ? `/${window.location.pathname.split('/')[1]}` : "";
+        // Verifica se está rodando em localhost
+        const isLocalhost = hostname === "127.0.0.1" || hostname === "localhost";
 
-            // Redireciona sempre para a home correta
-            window.location.href = `${repoName}/index.html`;
-        });
-    }
+        // Caso 1: Localhost ou domínio próprio -> vai direto pra raiz
+        if (isLocalhost || !hostname.includes("github.io")) {
+            window.location.href = `${window.location.origin}/index.html`;
+        } 
+        // Caso 2: GitHub Pages (sem domínio próprio)
+        else {
+            // Pega o nome do repositório (primeiro diretório após a barra inicial)
+            const repoName = pathname.split("/")[1];
+            window.location.href = `${window.location.origin}/${repoName}/index.html`;
+        }
+    });
+}
+
 
 
     // ========== BOTÕES DE NAVEGAÇÃO DO CARROSSEL ==========
